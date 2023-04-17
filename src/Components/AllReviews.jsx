@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { ReviewCard } from "./ReviewCard";
+import { Reviews } from "./Reviews";
 
-export function AllReviews({ reviews, setReviews }) {
+export function AllReviews({ reviews, setReviews, isLoading, setIsLoading }) {
   const reqURL = "https://board-game-reviews-brfi.onrender.com/api/reviews";
 
   useEffect(() => {
-    getAllReviews();
+    getAllReviews().then(() => {
+      setIsLoading(false);
+    });
   }, []);
 
   const getAllReviews = async () => {
@@ -14,13 +16,13 @@ export function AllReviews({ reviews, setReviews }) {
     setReviews(reviews);
   };
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <main>
       <section>
         <h2>All reviews</h2>
-        {reviews.map((review) => {
-          return <ReviewCard key={review.review_id} review={review} />;
-        })}
+        <Reviews reviews={reviews} setReviews={setReviews} />
       </section>
     </main>
   );

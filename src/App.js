@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className="App">
@@ -16,11 +17,25 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home reviews={reviews} setReviews={setReviews} />}
+          element={
+            <Home
+              reviews={reviews}
+              setReviews={setReviews}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
         />
         <Route
           path="/reviews"
-          element={<AllReviews reviews={reviews} setReviews={setReviews} />}
+          element={
+            <AllReviews
+              reviews={reviews}
+              setReviews={setReviews}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
         />
       </Routes>
     </div>
