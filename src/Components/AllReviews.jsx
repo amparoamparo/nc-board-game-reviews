@@ -1,38 +1,38 @@
 import { useEffect, useState } from "react";
 import { ReviewCard } from "./ReviewCard";
 
-export function LatestReviews() {
+export function AllReviews() {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const reqURL = "https://board-game-reviews-brfi.onrender.com/api/reviews";
 
   useEffect(() => {
-    getLatestReviews().then(() => {
+    getAllReviews().then(() => {
       setIsLoading(false);
     });
   }, []);
 
-  const getLatestReviews = async () => {
+  const getAllReviews = async () => {
     const response = await fetch(`${reqURL}`);
     const { reviews } = await response.json();
-    const latestReviews = reviews.slice(0, 9);
-    setReviews(latestReviews);
+    setReviews(reviews);
   };
 
   return isLoading ? (
-    <section>
-      <h2>Latest reviews</h2>
-      <p>Loading reviews...</p>
-    </section>
+    <main>
+      <section>
+        <h2>All reviews</h2>
+        <p>Loading reviews...</p>
+      </section>
+    </main>
   ) : (
-    <section>
-      <h2>Latest reviews</h2>
-      <div className="reviews-wrapper">
+    <main>
+      <section>
+        <h2>All reviews</h2>
         {reviews.map((review) => {
           return <ReviewCard key={review.review_id} review={review} />;
         })}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

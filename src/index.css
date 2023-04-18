@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap");
+
 /*CSS RESET STARTS HERE*/
 
 /* Box sizing rules */
@@ -105,6 +107,8 @@ select {
 
 body {
   font-family: var(--nc-font-family);
+  width: 100%;
+  display: grid;
 }
 
 h1 {
@@ -112,4 +116,19 @@ h1 {
   color: var(--nc-red);
 }
 
+a {
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--nc-black);
+  transition: ease-in-out 180ms;
+}
+
+a:hover {
+  color: var(--nc-primary-hover);
+  transition: ease-in-out 180ms;
+}
+
+a:active {
+  color: var(--nc-primary-active);
+}
 /*CUSTOM CSS ENDS HERE*/
