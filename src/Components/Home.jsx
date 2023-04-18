@@ -18,7 +18,11 @@ export function Home({ reviews, setReviews, isLoading, setIsLoading }) {
   };
 
   return isLoading ? (
-    <p>Loading...</p>
+    <main>
+      <section>
+        <h2>Loading...</h2>
+      </section>
+    </main>
   ) : (
     <main>
       <section>

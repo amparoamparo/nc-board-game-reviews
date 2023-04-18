@@ -11,10 +11,10 @@ export function Nav({}) {
           <Link to="/reviews">All reviews</Link>
         </li>
         <li>
-          <a href="">Categories</a>
+          <a href="/categories">Categories</a>
         </li>
         <li>
-          <a href="">Login</a>
+          <a href="/login">Login</a>
         </li>
       </ul>
     </nav>

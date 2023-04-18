@@ -4,7 +4,12 @@ export function ReviewCard({ review }) {
 
   return (
     <article>
-      <img src={review.review_img_url} alt={review.title} />
+      <img
+        src={review.review_img_url}
+        alt={review.title}
+        width={400}
+        height="100%"
+      />
       <h3>{review.title}</h3>
       <p>
         <span>{review.owner}</span>
