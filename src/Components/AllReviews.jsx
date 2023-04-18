@@ -18,21 +18,18 @@ export function AllReviews() {
     setReviews(reviews);
   };
 
-  return isLoading ? (
-    <main>
-      <section>
-        <h2>All reviews</h2>
+  return (
+    <section>
+      <h2>All reviews</h2>
+      {isLoading ? (
         <p>Loading reviews...</p>
-      </section>
-    </main>
-  ) : (
-    <main>
-      <section>
-        <h2>All reviews</h2>
-        {reviews.map((review) => {
-          return <ReviewCard key={review.review_id} review={review} />;
-        })}
-      </section>
-    </main>
+      ) : (
+        <div className="reviews-wrapper">
+          {reviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review} />;
+          })}
+        </div>
+      )}
+    </section>
   );
 }

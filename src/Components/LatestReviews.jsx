@@ -20,19 +20,18 @@ export function LatestReviews() {
     setReviews(latestReviews);
   };
 
-  return isLoading ? (
+  return (
     <section>
       <h2>Latest reviews</h2>
-      <p>Loading reviews...</p>
-    </section>
-  ) : (
-    <section>
-      <h2>Latest reviews</h2>
-      <div className="reviews-wrapper">
-        {reviews.map((review) => {
-          return <ReviewCard key={review.review_id} review={review} />;
-        })}
-      </div>
+      {isLoading ? (
+        <p>Loading reviews...</p>
+      ) : (
+        <div className="reviews-wrapper">
+          {reviews.map((review) => {
+            return <ReviewCard key={review.review_id} review={review} />;
+          })}
+        </div>
+      )}
     </section>
   );
 }
