@@ -1,4 +1,4 @@
-import { NotFound } from "./Components/NotFound";
+// import { NotFound } from "./Components/NotFound";
 import { Header } from "./Components/Header";
 import { Nav } from "./Components/Nav";
 import { Home } from "./Components/Home";
