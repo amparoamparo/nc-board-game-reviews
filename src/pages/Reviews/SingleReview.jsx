@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import reqURLs from "../../api";
 import { NotFound } from "../NotFound/NotFound";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import CommentSection from "../../components/CommentSection";
 
 export default function SingleReview() {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ export default function SingleReview() {
               Loading Review...
             </p>
           ) : (
-            <article className="xl:mx-48">
+            <article>
               <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 pb-6">
                 {categoryLabel}
               </p>
@@ -70,20 +71,21 @@ export default function SingleReview() {
                 {formattedDate}
               </p>
               <img src={review.review_img_url} alt={review.title} />
+
               {isUserLoading ? (
                 <p className="text-xl font-medium text-gray-600 pt-12 pb-4">
                   Loading author details...
                 </p>
               ) : (
-                <div className="flex items-center gap-2 w-full pt-12 pb-4">
+                <div className="flex items-center gap-3 w-full pt-12 pb-4">
                   <img
                     src={user.avatar_url}
                     alt=""
-                    width="48"
-                    height="48"
+                    width="64"
+                    height="64"
                     className="rounded-full aspect-square object-contain border-gray-300 border"
                   />
-                  <div className="flex flex-col">
+                  <div className="flex flex-col gap-1">
                     <p className="text-sm font-semibold uppercase tracking-wider text-gray-500">
                       Written by
                     </p>
@@ -109,13 +111,14 @@ export default function SingleReview() {
                   {review.review_body}
                 </p>
               </div>
-              <p className="text-xl text-gray-400 pt-10">
+              <p className="text-xl text-gray-500 pt-10">
                 Game designed by {review.designer}
               </p>
             </article>
           )}
         </section>
-        {/* <Comments /> */}
+        <hr className="h-px w-full" />
+        <CommentSection review={review} />
       </HelmetProvider>
     </>
   );
