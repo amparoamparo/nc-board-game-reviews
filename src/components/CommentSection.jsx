@@ -19,6 +19,9 @@ export default function Comments({ review }) {
     <section className="grid place-content-center justi">
       <section>
         <h3 className="text-2xl font-bold">Comments</h3>
+        {!comments.length ? (
+          <h4 className="text-lg pt-16">No comments yet.</h4>
+        ) : null}
         {comments.map((comment, index) => {
           return (
             <CommentCard

@@ -41,14 +41,12 @@ const CommentCard = ({ comment, commentCount, commentIndex, reviewAuthor }) => {
                 {user.name}
               </p>
               {comment.author === reviewAuthor ? (
-                <p className="uppercase text-sm bg-gray-100 font-semibold rounded px-1">
+                <p className="uppercase text-xs bg-gray-100 font-bold text-gray-600 rounded px-2 py-1">
                   author
                 </p>
-              ) : (
-                <div></div>
-              )}
+              ) : null}
               <p>∙</p>
-              <p className="text-sm text-gray-500">{formattedDate}</p>
+              <p className="text-md text-gray-500">{formattedDate}</p>
             </div>
             <div className="max-w-xl">
               <p className="text-base text-gray-700">{comment.body}</p>
