@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   createBrowserRouter,
   Route,
@@ -37,15 +36,6 @@ const router = createBrowserRouter(
     </Route>
   )
 );
-=======
-// import { NotFound } from "./Components/NotFound";
-import { Header } from "./Components/Header";
-import { Nav } from "./Components/Nav";
-import { Home } from "./Components/Home";
-import { AllReviews } from "./Components/AllReviews";
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
->>>>>>> 3c7014215806791f594b5b908f65762d28ccc700
 
 function App() {
   return <RouterProvider router={router} />;
