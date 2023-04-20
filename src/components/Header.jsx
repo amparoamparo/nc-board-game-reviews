@@ -1,10 +1,11 @@
+import { ReactComponent as Logo } from "../assets/logo.svg";
+
 export function Header() {
   return (
     <header className="flex flex-col md:flex-row justify-center md:justify-between gap-6">
       <a href="/">
         <div className="flex flex-row items-center justify-center md:justify-normal space-x-4">
-          <img
-            src="./assets/logo.svg"
+          <Logo
             alt=""
             width={100}
             height="100%"
