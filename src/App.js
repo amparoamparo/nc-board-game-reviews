@@ -8,7 +8,7 @@ import {
 // pages
 import { Home } from "./pages/Home/Home";
 import AllReviews from "./pages/Reviews/AllReviews";
-// import SingleReview, { singleReviewLoader } from "./pages/Reviews/SingleReview";
+import SingleReview, { singleReviewLoader } from "./pages/Reviews/SingleReview";
 // import Categories from "./Components/Categories";
 // import Login from "./Components/Login";
 import { NotFound } from "./pages/NotFound/NotFound";
@@ -23,12 +23,12 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="reviews" element={<ReviewsLayout />}>
         <Route index element={<AllReviews />} />
-        {/* <Route
+        <Route
           path=":review_id"
           element={<SingleReview />}
           loader={singleReviewLoader}
           errorElement={<NotFound />}
-        /> */}
+        />
       </Route>
       {/* <Route path="categories" element={<Categories />} />
       <Route path="login" element={<Login />} /> */}
