@@ -10,7 +10,7 @@ export function Comments() {
         </article>
       </section>
       {/* only visible when logged in */}
-      <section>
+      {/* <section>
         <form action="">
           <label htmlFor="new-comment">
             <h4>Post a comment</h4>
@@ -25,7 +25,7 @@ export function Comments() {
             Post comment
           </button>
         </form>
-      </section>
+      </section> */}
     </section>
   );
 }

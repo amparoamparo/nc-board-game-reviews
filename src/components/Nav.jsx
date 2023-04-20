@@ -33,7 +33,7 @@ export function Nav() {
             href="/login"
             id="login-button"
             className="py-1 px-4 md:py-2 md:px-6
-              bg-nc-red-primary hover:bg-nc-red-mid active:bg-nc-red-dark rounded-full
+              bg-red-600 hover:bg-red-700 active:bg-red-800 rounded-full
               text-white font-semibold
               transition-all"
           >

@@ -29,8 +29,11 @@ export function ReviewCard({ review }) {
 
   return (
     <>
-      <article className="border rounded-xl overflow-hidden flex flex-col bg-white hover:shadow-2xl hover:-translate-y-4 transition-all min-h-full">
-        <Link to={`/reviews/${review.review_id}`}>
+      <article>
+        <Link
+          to={`/reviews/${review.review_id}`}
+          className="border rounded-xl overflow-hidden flex flex-col bg-white hover:shadow-2xl hover:-translate-y-4 transition-all min-h-full"
+        >
           <div className="h-64">
             <img
               src={review.review_img_url}
@@ -75,6 +78,7 @@ export function ReviewCard({ review }) {
                 </p>
               </div>
             </div>
+
             <div className="mt-auto text-lg text-black font-bold flex justify-between">
               <p>Read review</p>
               <span

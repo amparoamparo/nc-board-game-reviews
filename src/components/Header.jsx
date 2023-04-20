@@ -8,9 +8,9 @@ export function Header() {
             alt=""
             width={100}
             height="100%"
-            className="w-8 sm:w-10 h-auto text-nc-red-primary"
+            className="w-8 sm:w-10 h-auto"
           />
-          <h1 className="text-lg sm:text-2xl  text-nc-red-primary font-bold">
+          <h1 className="text-lg sm:text-2xl text-red-600 font-bold">
             Board Game Reviews
           </h1>
         </div>
