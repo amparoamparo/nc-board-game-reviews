@@ -11,9 +11,7 @@ export function Home() {
             board games
           </title>
         </Helmet>
-        <main>
-          <LatestReviews />
-        </main>
+        <LatestReviews />
       </HelmetProvider>
     </>
   );

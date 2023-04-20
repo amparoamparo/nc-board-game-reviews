@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import reqURLs from "../../api";
 import { NotFound } from "../NotFound/NotFound";
@@ -7,6 +7,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 export default function SingleReview() {
   const navigate = useNavigate();
   const [user, setUser] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUserLoading, setIsUserLoading] = useState(true);
 
   const { review } = useLoaderData();
 
@@ -16,6 +18,7 @@ export default function SingleReview() {
       const { users } = await response.json();
       const author = users.filter((user) => user.username === review.owner);
       setUser(author[0]);
+      setIsUserLoading(false);
     };
 
     if (!review) {
@@ -26,7 +29,13 @@ export default function SingleReview() {
     if (review && review.owner) {
       getUser();
     }
+
+    setIsLoading(false);
   }, [navigate, review]);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const categoryLabel = review.category.split("-").join(" ");
   const date = new Date(review.created_at);
@@ -46,8 +55,12 @@ export default function SingleReview() {
         <Helmet>
           <title>{`Board Game Reviews - ${review.title}`}</title>
         </Helmet>
-        <main>
-          <section className="grid place-content-center">
+        <section className="grid place-content-center">
+          {isLoading ? (
+            <p className="text-xl font-medium text-gray-600 pt-12 pb-4">
+              Loading Review...
+            </p>
+          ) : (
             <article className="xl:mx-48">
               <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 pb-6">
                 {categoryLabel}
@@ -57,25 +70,39 @@ export default function SingleReview() {
                 {formattedDate}
               </p>
               <img src={review.review_img_url} alt={review.title} />
-
-              <div className="flex items-center gap-2 w-full pt-12 pb-4">
-                <img
-                  src={user.avatar_url}
-                  alt=""
-                  width="48"
-                  height="48"
-                  className="rounded-full aspect-square object-contain border-gray-300 border"
-                />
-                <div className="flex flex-col">
-                  <p className="text-sm font-semibold uppercase tracking-wider text-gray-500">
-                    Written by
-                  </p>
-                  <p className="text-lg font-bold text-black">{user.name}</p>
+              {isUserLoading ? (
+                <p className="text-xl font-medium text-gray-600 pt-12 pb-4">
+                  Loading author details...
+                </p>
+              ) : (
+                <div className="flex items-center gap-2 w-full pt-12 pb-4">
+                  <img
+                    src={user.avatar_url}
+                    alt=""
+                    width="48"
+                    height="48"
+                    className="rounded-full aspect-square object-contain border-gray-300 border"
+                  />
+                  <div className="flex flex-col">
+                    <p className="text-sm font-semibold uppercase tracking-wider text-gray-500">
+                      Written by
+                    </p>
+                    <p className="text-lg font-bold text-black">{user.name}</p>
+                  </div>
                 </div>
-              </div>
+              )}
+
               <div className="flex gap-5">
-                <p className="py-4">💬 {review.comment_count}</p>
-                <p className="py-4">👍 {review.votes}</p>
+                <p className="py-4">
+                  <span aria-hidden="true">💬 </span>
+                  {review.comment_count}
+                  <span className="sr-only">comments</span>
+                </p>
+                <p className="py-4">
+                  <span aria-hidden="true">👍 </span>
+                  <span className="sr-only">Upvoted </span>
+                  {review.votes} <span className="sr-only">times</span>
+                </p>
               </div>
               <div className="max-w-2xl">
                 <p className="text-xl text-gray-700 leading-7 pt-4 max-w-24">
@@ -86,9 +113,9 @@ export default function SingleReview() {
                 Game designed by {review.designer}
               </p>
             </article>
-          </section>
-          {/* <Comments /> */}
-        </main>
+          )}
+        </section>
+        {/* <Comments /> */}
       </HelmetProvider>
     </>
   );

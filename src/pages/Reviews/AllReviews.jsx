@@ -18,8 +18,7 @@ export default function AllReviews() {
   const getLatestReviews = async () => {
     const response = await fetch(`${reqURLs.APIReviews}`);
     const { reviews } = await response.json();
-    const latestReviews = reviews.slice(0, 9);
-    setReviews(latestReviews);
+    setReviews(reviews);
   };
 
   return (
