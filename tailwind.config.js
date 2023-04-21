@@ -8,11 +8,8 @@ module.exports = {
       },
       colors: {
         "bright-yellow": "#f8f063",
-        "nc-red-primary": "#eb1c24",
-        "nc-red-mid": "#d91921",
-        "nc-red-dark": "#cc171f",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@headlessui/tailwindcss")],
 };

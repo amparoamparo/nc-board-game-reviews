@@ -25,7 +25,7 @@ export default function AllReviews() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>Board Game Reviews - All reviews</title>
+          <title>All reviews - Board Game Reviews</title>
         </Helmet>
         <h2 className="font-Mulish tracking-wide text-2xl md:text-5xl font-black">
           All reviews

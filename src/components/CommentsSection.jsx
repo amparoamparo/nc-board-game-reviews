@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import reqURLs from "../api";
 import CommentCard from "./CommentCard";
+
 export default function Comments({ review }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -20,7 +21,7 @@ export default function Comments({ review }) {
   }, [review.review_id]);
 
   return (
-    <section className="grid place-content-center justi">
+    <section className="grid place-content-center" id="comments-section">
       <section>
         <h3 className="text-2xl font-bold">Comments</h3>
         {isLoading ? (
@@ -30,7 +31,7 @@ export default function Comments({ review }) {
         ) : comments.length > 0 ? (
           comments.map((comment, index) => (
             <CommentCard
-              key={comment.id}
+              key={index}
               comment={comment}
               commentCount={review.comment_count}
               commentIndex={index}

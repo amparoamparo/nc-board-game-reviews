@@ -1,15 +1,19 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { UpvoteReviewButton } from "../../components/UpvoteButton";
+import { useEffect, useState, useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import reqURLs from "../../api";
 import { NotFound } from "../NotFound/NotFound";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import CommentSection from "../../components/CommentSection";
+import Comments from "../../components/CommentsSection";
+import AuthContext from "../../auth/auth";
+import { HashLink } from "react-router-hash-link";
 
 export default function SingleReview() {
   const navigate = useNavigate();
-  const [user, setUser] = useState("");
+  const [author, setAuthor] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [isUserLoading, setIsUserLoading] = useState(true);
+  const { user } = useContext(AuthContext);
 
   const { review } = useLoaderData();
 
@@ -18,7 +22,7 @@ export default function SingleReview() {
       const response = await fetch(`${reqURLs.APIUsers}`);
       const { users } = await response.json();
       const author = users.filter((user) => user.username === review.owner);
-      setUser(author[0]);
+      setAuthor(author[0]);
       setIsUserLoading(false);
     };
 
@@ -34,9 +38,9 @@ export default function SingleReview() {
     setIsLoading(false);
   }, [navigate, review]);
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useLayoutEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   const categoryLabel = review.category.split("-").join(" ");
   const date = new Date(review.created_at);
@@ -54,7 +58,7 @@ export default function SingleReview() {
     <>
       <HelmetProvider>
         <Helmet>
-          <title>{`Board Game Reviews - ${review.title}`}</title>
+          <title>{`${review.title} - Board Game Reviews`}</title>
         </Helmet>
         <div className="grid mx-auto justify-items-start">
           <section className="grid place-content-center">
@@ -79,7 +83,7 @@ export default function SingleReview() {
                 ) : (
                   <div className="flex items-center gap-3 w-full pt-12 pb-4">
                     <img
-                      src={user.avatar_url}
+                      src={author.avatar_url}
                       alt=""
                       width="64"
                       height="64"
@@ -90,22 +94,45 @@ export default function SingleReview() {
                         Written by
                       </p>
                       <p className="text-lg font-bold text-black">
-                        {user.name}
+                        {author.name}
                       </p>
                     </div>
                   </div>
                 )}
                 <div className="flex gap-5">
-                  <p className="py-4">
-                    <span aria-hidden="true">💬 </span>
-                    {review.comment_count}
-                    <span className="sr-only">comments</span>
-                  </p>
-                  <p className="py-4">
-                    <span aria-hidden="true">👍 </span>
-                    <span className="sr-only">Upvoted </span>
-                    {review.votes} <span className="sr-only">times</span>
-                  </p>
+                  {user ? (
+                    <>
+                      <HashLink
+                        smooth
+                        to="#comments-section"
+                        className="bg-gray-100 font-bold text-gray-600 rounded px-2 py-2"
+                        title="Click to jump to comments"
+                      >
+                        <span aria-hidden="true">💬 </span>
+                        {review.comment_count}
+                        <span className="sr-only">comments</span>
+                      </HashLink>
+                      <UpvoteReviewButton
+                        review_id={review.review_id}
+                        votes={review.votes}
+                        user={user}
+                        author={review.owner}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className="py-4">
+                        <span aria-hidden="true">💬 </span>
+                        {review.comment_count}
+                        <span className="sr-only">comments</span>
+                      </p>
+                      <p className="py-4">
+                        <span aria-hidden="true">👍 </span>
+                        <span className="sr-only">Upvoted </span>
+                        {review.votes} <span className="sr-only">times.</span>
+                      </p>
+                    </>
+                  )}
                 </div>
                 <div className="max-w-2xl">
                   <p className="text-xl text-gray-700 leading-7 pt-4 max-w-24">
@@ -119,7 +146,7 @@ export default function SingleReview() {
             )}
           </section>
           <hr className="h-px w-full my-24" />
-          <CommentSection review={review} />
+          <Comments review={review} />
         </div>
       </HelmetProvider>
     </>
