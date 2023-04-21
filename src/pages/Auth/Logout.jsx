@@ -7,7 +7,7 @@ export const Logout = () => {
         <Helmet>
           <title>Signed out · Board Game Reviews</title>
         </Helmet>
-        <main className="grid mx-auto justify-items-start">
+        <div className="grid mx-auto justify-items-start">
           <section className="grid place-content-center mx-auto justify-items-center gap-32">
             <h2 className="font-Mulish tracking-wide text-2xl md:text-5xl font-black">
               You're signed out now.
@@ -26,7 +26,7 @@ export const Logout = () => {
               </p>
             </div>
           </section>
-        </main>
+        </div>
       </HelmetProvider>
     </>
   );

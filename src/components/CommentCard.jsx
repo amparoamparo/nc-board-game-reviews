@@ -26,7 +26,7 @@ const CommentCard = ({ comment, commentCount, commentIndex, reviewAuthor }) => {
 
   return (
     <>
-      <article className="flex items-center gap-4 py-12 max-w-2xl">
+      <article className="flex items-center gap-4 py-12 w-full">
         <img
           src={user.avatar_url}
           alt=""
@@ -59,7 +59,7 @@ const CommentCard = ({ comment, commentCount, commentIndex, reviewAuthor }) => {
           </div>
         </div>
       </article>
-      <hr />
+
       {/* {commentCount - 1 !== commentIndex ? <hr /> : <div></div>} */}
     </>
   );

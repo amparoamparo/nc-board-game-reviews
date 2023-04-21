@@ -26,7 +26,7 @@ export function PostComment({ user, reviewId, setComments }) {
   };
 
   return (
-    <section className="grid items-center gap-4 py-12 w-full">
+    <section className="grid col-span-full w-full py-12">
       <form onSubmit={handlePostComment} className="flex flex-col gap-4">
         <label htmlFor="new-comment">
           <h4 className="text-xl font-bold">Post a comment</h4>

@@ -18,14 +18,14 @@ import { Logout } from "./pages/Auth/Logout";
 
 // layouts
 import RootLayout from "./layouts/RootLayout";
-import ReviewsLayout from "./layouts/ReviewsLayout";
-import LoginLayout from "./layouts/LoginLayout";
+import PageLayout from "./layouts/PageLayout";
+import Categories from "./pages/Categories/Categories";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path="reviews" element={<ReviewsLayout />}>
+      <Route path="reviews" element={<PageLayout />}>
         <Route index element={<AllReviews />} />
         <Route
           path=":review_id"
@@ -34,11 +34,19 @@ const router = createBrowserRouter(
           errorElement={<NotFound />}
         />
       </Route>
-      <Route path="login" element={<LoginLayout />}>
+      <Route path="login" element={<PageLayout />}>
         <Route index element={<Login />} />
       </Route>
       <Route path="logout" element={<Logout />} />
-      {/* <Route path="categories" element={<Categories />} /> */}
+      <Route path="categories" element={<PageLayout />}>
+        <Route index element={<Categories />} />
+        {/* <Route
+          path="?category=:category"
+          element={<ReviewsByCategory />}
+          loader={reviewByCategoryLoader}
+          errorElement={<NotFound />}
+        /> */}
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
   )

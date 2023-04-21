@@ -24,7 +24,7 @@ export default function Comments({ review }) {
   }, [review.review_id]);
 
   return (
-    <div className="grid max-w-2xl justify-items-start " id="comments-section">
+    <div className="grid justify-items-start min-w-full" id="comments-section">
       <section>
         <h3 className="text-2xl font-bold">Comments</h3>
         {isLoading ? (
@@ -33,12 +33,17 @@ export default function Comments({ review }) {
           </p>
         ) : comments.length > 0 ? (
           comments.map((comment) => (
-            <CommentCard
-              key={comment.comment_id}
-              comment={comment}
-              commentCount={review.comment_count}
-              reviewAuthor={review.owner}
-            />
+            <div>
+              <div>
+                <CommentCard
+                  key={comment.comment_id}
+                  comment={comment}
+                  commentCount={review.comment_count}
+                  reviewAuthor={review.owner}
+                />
+                <hr />
+              </div>
+            </div>
           ))
         ) : (
           <h4 className="text-lg py-12">No comments yet.</h4>

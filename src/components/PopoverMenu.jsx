@@ -12,7 +12,10 @@ export default function PopoverMenu() {
 
   return (
     <Popover className="relative">
-      <Popover.Button className="flex items-center gap-2">
+      <Popover.Button
+        className="flex items-center gap-2"
+        aria-label="your account"
+      >
         <div className="flex flex-row items-center">
           <img
             src={user.avatar_url}
@@ -43,6 +46,7 @@ export default function PopoverMenu() {
             <NavLink
               to={null}
               className="flow-root rounded-md p-4 transition duration-150 ease-in-out focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+              aria-disabled="true"
             >
               <span className="flex items-center w-full whitespace-nowrap gap-2 text-sm font-semibold text-gray-400 cursor-default">
                 <span

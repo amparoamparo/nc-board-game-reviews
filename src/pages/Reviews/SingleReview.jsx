@@ -60,7 +60,7 @@ export default function SingleReview() {
         <Helmet>
           <title>{`${review.title} - Board Game Reviews`}</title>
         </Helmet>
-        <div className="grid mx-auto justify-items-start max-w-2xl">
+        <div className="grid mx-auto justify-items-start max-w-2xl w-full">
           <section className="grid place-content-center">
             {isLoading ? (
               <p className="text-xl font-medium text-gray-600 pt-12 pb-4">
