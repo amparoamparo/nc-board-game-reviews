@@ -28,7 +28,7 @@ export function UpvoteReviewButton({ review_id, votes, user, author }) {
     <>
       {user.username !== author && (
         <button
-          className="bg-gray-100 font-bold text-gray-600 rounded px-2 py-2"
+          className="text-md font-bold px-4 py-2 bg-gray-100 rounded-lg w-fit hover:bg-gray-200 transition-all active:translate-y-1 active:bg-gray-300"
           title="Click to upvote"
           onClick={handleUpvoteReview}
         >
@@ -40,7 +40,7 @@ export function UpvoteReviewButton({ review_id, votes, user, author }) {
       )}
       {user.username === author && (
         <button
-          className="bg-gray-100 font-bold text-gray-600 rounded px-2 py-2 cursor-not-allowed"
+          className="text-md font-bold px-4 py-2 bg-gray-100 rounded-lg w-fit cursor-not-allowed"
           title="You cannot upvote your own review"
           disabled
         >

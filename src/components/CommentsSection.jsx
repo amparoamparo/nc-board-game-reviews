@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { PostComment } from "./PostComment";
+import { useEffect, useState, useContext } from "react";
 import reqURLs from "../api";
 import CommentCard from "./CommentCard";
+import AuthContext from "../auth/auth";
 
 export default function Comments({ review }) {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const getComments = async () => {
@@ -42,23 +45,13 @@ export default function Comments({ review }) {
           <h4 className="text-lg py-12">No comments yet.</h4>
         )}
       </section>
-      {/* only visible when logged in */}
-      {/* <section>
-        <form action="">
-          <label htmlFor="new-comment">
-            <h4>Post a comment</h4>
-          </label>
-          <textarea
-            name="new-comment"
-            id="new-comment"
-            cols="60"
-            rows="10"
-          ></textarea>
-          <button type="submit" className="">
-            Post comment
-          </button>
-        </form>
-      </section> */}
+      {user ? (
+        <PostComment
+          user={user}
+          reviewId={review.review_id}
+          setComments={setComments}
+        />
+      ) : null}
     </section>
   );
 }

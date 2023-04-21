@@ -61,7 +61,8 @@ const CommentCard = ({ comment, commentCount, commentIndex, reviewAuthor }) => {
           </div>
         </div>
       </article>
-      {commentCount - 1 !== commentIndex ? <hr /> : <div></div>}
+      <hr />
+      {/* {commentCount - 1 !== commentIndex ? <hr /> : <div></div>} */}
     </>
   );
 };

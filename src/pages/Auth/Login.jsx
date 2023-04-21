@@ -40,9 +40,10 @@ export function Login() {
             </h2>
             <p className="text-xl">Pick a user to log in as them:</p>
             <div className="grid sm:grid-cols-2 2xl:grid-cols-3 gap-12">
-              {allUsers.map((userOption) => {
+              {allUsers.map((userOption, index) => {
                 return (
                   <UserLoginCard
+                    key={index}
                     handleUserSelection={handleUserSelection}
                     userOption={userOption}
                   />
