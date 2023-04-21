@@ -15,9 +15,7 @@ export default function Comments({ review }) {
     };
 
     getComments().then(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 2000);
+      setIsLoading(false);
     });
   }, [review.review_id]);
 
