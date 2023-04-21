@@ -24,7 +24,7 @@ export default function Comments({ review }) {
   }, [review.review_id]);
 
   return (
-    <section className="grid place-content-center" id="comments-section">
+    <div className="grid max-w-2xl justify-items-start " id="comments-section">
       <section>
         <h3 className="text-2xl font-bold">Comments</h3>
         {isLoading ? (
@@ -32,12 +32,11 @@ export default function Comments({ review }) {
             Loading comments...
           </p>
         ) : comments.length > 0 ? (
-          comments.map((comment, index) => (
+          comments.map((comment) => (
             <CommentCard
-              key={index}
+              key={comment.comment_id}
               comment={comment}
               commentCount={review.comment_count}
-              commentIndex={index}
               reviewAuthor={review.owner}
             />
           ))
@@ -52,6 +51,6 @@ export default function Comments({ review }) {
           setComments={setComments}
         />
       ) : null}
-    </section>
+    </div>
   );
 }

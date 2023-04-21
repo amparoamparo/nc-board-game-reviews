@@ -9,7 +9,7 @@ export function UserLoginCard({ handleUserSelection, userOption }) {
           alt={userOption.name}
           width="96"
           height="96"
-          className="rounded-full aspect-square object-contain "
+          className="rounded-full aspect-square object-contain"
         />
         <h2 className="text-lg font-semibold">{userOption.name}</h2>
       </article>

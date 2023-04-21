@@ -60,7 +60,7 @@ export default function SingleReview() {
         <Helmet>
           <title>{`${review.title} - Board Game Reviews`}</title>
         </Helmet>
-        <div className="grid mx-auto justify-items-start">
+        <div className="grid mx-auto justify-items-start max-w-2xl">
           <section className="grid place-content-center">
             {isLoading ? (
               <p className="text-xl font-medium text-gray-600 pt-12 pb-4">
@@ -81,7 +81,7 @@ export default function SingleReview() {
                     Loading author details...
                   </p>
                 ) : (
-                  <div className="flex items-center gap-3 w-full pt-12 pb-4">
+                  <div className="flex items-center gap-3  pt-12 pb-4">
                     <img
                       src={author.avatar_url}
                       alt=""
@@ -134,11 +134,11 @@ export default function SingleReview() {
                     </>
                   )}
                 </div>
-                <div className="max-w-2xl">
-                  <p className="text-xl text-gray-700 leading-7 pt-4 max-w-24">
-                    {review.review_body}
-                  </p>
-                </div>
+
+                <p className="text-xl text-gray-700 leading-7 pt-4 max-w-24">
+                  {review.review_body}
+                </p>
+
                 <p className="text-xl text-gray-500 pt-10">
                   Game designed by {review.designer}
                 </p>
@@ -146,6 +146,7 @@ export default function SingleReview() {
             )}
           </section>
           <hr className="h-px w-full my-24" />
+
           <Comments review={review} />
         </div>
       </HelmetProvider>

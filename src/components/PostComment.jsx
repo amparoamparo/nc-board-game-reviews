@@ -26,23 +26,23 @@ export function PostComment({ user, reviewId, setComments }) {
   };
 
   return (
-    <section className="mt-24">
-      <form onSubmit={handlePostComment} className=" flex flex-col gap-4 w-fit">
+    <section className="grid items-center gap-4 py-12 w-full">
+      <form onSubmit={handlePostComment} className="flex flex-col gap-4">
         <label htmlFor="new-comment">
           <h4 className="text-xl font-bold">Post a comment</h4>
         </label>
         <textarea
           name="new-comment"
           id="new-comment"
-          cols="48"
-          rows="4"
+          rows={4}
           value={newComment}
           onChange={(event) => setNewComment(event.target.value)}
-          className="mt-4 p-4 tex-lg border border-gray-300 rounded-md bg-white hover:border-gray-400 transition-all"
+          className="mt-4 p-4 text-lg border border-gray-300 rounded-md bg-white hover:border-gray-400 transition-all"
         ></textarea>
         <button
           type="submit"
-          className="text-md font-bold px-4 py-2 bg-gray-100 rounded-lg w-fit hover:bg-gray-200 transition-all active:translate-y-1 active:bg-gray-300"
+          className="text-md font-bold px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-all active:translate-y-1
+           active:bg-gray-300"
         >
           Post comment
         </button>

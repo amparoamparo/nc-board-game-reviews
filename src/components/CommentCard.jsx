@@ -26,38 +26,36 @@ const CommentCard = ({ comment, commentCount, commentIndex, reviewAuthor }) => {
 
   return (
     <>
-      <article>
-        <div className="flex items-center gap-4 w-full py-12">
-          <img
-            src={user.avatar_url}
-            alt=""
-            width="48"
-            height="48"
-            className="rounded-full aspect-square object-contain border-gray-300 border self-start"
-          />
-          <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 align-middle">
-              <p className="text-md font-bold tracking-wider text-black">
-                {user.name}
+      <article className="flex items-center gap-4 py-12 max-w-2xl">
+        <img
+          src={user.avatar_url}
+          alt=""
+          width="48"
+          height="48"
+          className="rounded-full aspect-square object-contain border-gray-300 border self-start"
+        />
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center gap-2 align-middle">
+            <p className="text-md font-bold tracking-wider text-black">
+              {user.name}
+            </p>
+            {comment.author === reviewAuthor ? (
+              <p className="uppercase text-xs bg-gray-100 font-bold text-gray-600 rounded px-2 py-1">
+                author
               </p>
-              {comment.author === reviewAuthor ? (
-                <p className="uppercase text-xs bg-gray-100 font-bold text-gray-600 rounded px-2 py-1">
-                  author
-                </p>
-              ) : null}
-              <p>∙</p>
-              <p className="text-md text-gray-500">{formattedDate}</p>
-            </div>
-            <div className="max-w-xl">
-              <p className="text-base text-gray-700">{comment.body}</p>
-            </div>
-            <div className=" w-fit mt-2 rounded-md cursor-default">
-              <p className="text-sm font-semibold">
-                <span aria-hidden="true">👍 </span>
-                <span className="sr-only">Upvoted </span>
-                {comment.votes} <span className="sr-only">times</span>
-              </p>
-            </div>
+            ) : null}
+            <p>∙</p>
+            <p className="text-md text-gray-500">{formattedDate}</p>
+          </div>
+          <div className="">
+            <p className="text-base text-gray-700">{comment.body}</p>
+          </div>
+          <div className="mt-2 rounded-md cursor-default">
+            <p className="text-sm font-semibold">
+              <span aria-hidden="true">👍 </span>
+              <span className="sr-only">Upvoted </span>
+              {comment.votes} <span className="sr-only">times</span>
+            </p>
           </div>
         </div>
       </article>
