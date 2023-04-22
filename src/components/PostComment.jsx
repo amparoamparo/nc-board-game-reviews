@@ -38,6 +38,7 @@ export function PostComment({ user, reviewId, setComments }) {
           value={newComment}
           onChange={(event) => setNewComment(event.target.value)}
           className="mt-4 p-4 text-lg border border-gray-300 rounded-md bg-white hover:border-gray-400 transition-all"
+          required
         ></textarea>
         <button
           type="submit"
