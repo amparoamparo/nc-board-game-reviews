@@ -1,6 +1,6 @@
 # NC Board Game Reviews
 
-[Demo](https://nc-board-game-reviews.vercel.app/)
+[Live version](https://nc-board-game-reviews.vercel.app/)
 
 ## About the project
 
@@ -28,16 +28,16 @@ When signed in, users can also:
 
 ### Built with
 
-![Figma](https://img.shields.io/badge/Figma-d7bcf7?style=for-the-badge&logo=figma&logoColor=black)
+[![Figma](https://img.shields.io/badge/Figma-d7bcf7?style=for-the-badge&logo=figma&logoColor=black)](https://figma.com)
 
-![Semantic HTML](https://img.shields.io/badge/Semantic_HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+[![Semantic HTML](https://img.shields.io/badge/Semantic_HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://web.dev/learn/html/semantic-html/)
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-![Headless UI](https://img.shields.io/badge/Headless%20UI-66E3FF?logo=headlessui&logoColor=000&style=for-the-badge)
+[![Headless UI](https://img.shields.io/badge/Headless%20UI-66E3FF?logo=headlessui&logoColor=000&style=for-the-badge)](https://headlessui.com/)
 
-![Google Fonts](https://img.shields.io/badge/Google%20Fonts-4285F4?logo=googlefonts&logoColor=fff&style=for-the-badge)
+[![Google Fonts](https://img.shields.io/badge/Google%20Fonts-4285F4?logo=googlefonts&logoColor=fff&style=for-the-badge)](https://fonts.google.com/icons)
 
-![Vercel Badge](https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=fff&style=for-the-badge)
+[![Vercel Badge](https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=fff&style=for-the-badge)](https://vercel.com/)
