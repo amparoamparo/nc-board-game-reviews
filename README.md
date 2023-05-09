@@ -1,4 +1,4 @@
-# nc-board-game-reviews
+# NC Board Game Reviews
 
 [Demo](https://nc-board-game-reviews.vercel.app/)
 
