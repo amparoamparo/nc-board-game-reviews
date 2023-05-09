@@ -8,7 +8,7 @@
 
 NC Board Game Reviews is a community for board game lovers, where they come together to review board games and interact with each other.
 
-I built this project as part of an immersive full-stack coding bootcamp. I also built the API from scract, [check it out here]().
+I built this project as part of an immersive full-stack coding bootcamp. I also built the API from scract, [check it out here](https://github.com/amparoamparo/nc-board-game-reviews-api).
 
 Without signing in, users can:
 
