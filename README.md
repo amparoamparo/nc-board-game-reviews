@@ -2,6 +2,8 @@
 
 [Live version](https://nc-board-game-reviews.vercel.app/)
 
+Please note the API is currently hosted on render's free tier, and it can take a few seconds to load for the first time.
+
 ## About the project
 
 ![Screenshot - Desktop](public/assets/screenshot.png)
