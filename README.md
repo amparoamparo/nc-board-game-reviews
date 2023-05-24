@@ -26,6 +26,13 @@ When signed in, users can also:
 - Leave a comment
 - Sign out
 
+Features I'm currently working on:
+
+- Post a review
+- Show reviews by category
+- Delete a comment
+- Upvote a comment
+
 ### Built with
 
 [![Figma](https://img.shields.io/badge/Figma-d7bcf7?style=for-the-badge&logo=figma&logoColor=black)](https://figma.com)
