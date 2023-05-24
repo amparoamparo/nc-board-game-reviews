@@ -2,7 +2,7 @@
 
 [Live version](https://nc-board-game-reviews.vercel.app/)
 
-Please note the API is currently hosted on render's free tier, and it can take a few seconds to load for the first time.
+Please note the [API](https://github.com/amparoamparo/nc-board-game-reviews-api) is currently hosted on [render](https://render.com/)'s free tier, and it can take a few seconds to load for the first time.
 
 ## About the project
 
