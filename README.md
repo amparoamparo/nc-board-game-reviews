@@ -12,6 +12,8 @@ NC Board Game Reviews is a community-driven platform for board game lovers, wher
 
 I built this responsive website as part of an immersive full-stack coding bootcamp. I also built the API it uses from scratch, [check it out here](https://github.com/amparoamparo/nc-board-game-reviews-api).
 
+As there was no design provided, I loosely crafted a prototype on Figma myself before starting to style the website.
+
 Without signing in, users can:
 
 - View latest reviews
